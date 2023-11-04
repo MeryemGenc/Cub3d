@@ -2,7 +2,7 @@ NAME = cub3d
 
 CC = gcc
 
-SOURCES = $(wildcard *.c  map/*.c libft/*.c libft/get_next_line/*.c)
+SOURCES = $(wildcard *.c  map/*.c libft/*.c libft/gnl/*.c)
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 
