@@ -8,10 +8,12 @@ int print_err(char *str)
 
 int main(int argc, char **argv)
 {
+    t_game *game;
+
     if (argc != 2)
         return print_err("Wrong argument");
-
-    map_init(argv[1]);
+    game = malloc(sizeof(game));
+    map_init(argv[1], game);
 
     return 0;
 }
