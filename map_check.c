@@ -1,23 +1,34 @@
 #include "cube3d.h"
 
-// int map_parsing(t_game *game, char *map)
-// {
-//     int i;
-//     char **tmp_map;
+    // game->map->map için yer ayır malloc ile (yer atamamıza gerek var mı - map e zaten splitte yer atanıyor.) - şiimdilik YOK diyelim
+    // \n görene kadar her satırı map e ata.
+    // game->map->map_X i olana kadar sonuna space koy.
+int map_parsing(t_game *game)
+{
+    int i;
+    int j;
+    //char **map;
 
-//     i = 0;
-//     tmp_map = ft_split(map, '\n');
-//     free(map);
-
-//     while(i < game->map->map_X)
-//     {
-//         printf("%s", tmp_map[i]);
-//         i++;
-//     }
-//     i = 0;
-//     while(tmp_map[i])
-//         free(tmp_map[i++]);
-//     free(tmp_map);
-
-//     return 0;
-// }
+    i = 0;
+    j = 0;
+    //map = (char **)malloc(game->map->map_X * game->map->map_X);
+    while(i < game->map->map_Y)
+    {
+        j = 0;
+        printf("\nmap %d. satir uzunluk: %d", i, ft_strlen(game->map->map[i]); // dene + sil 
+        // while (j < game->map->map_X)
+        // {
+        //     if (j < ft_strlen(game->map->map[i]) - 1)
+        //         map[i][j] = game->map->map[i][j];
+        //     else
+        //         map[i][j] = ' ';
+        //     j++;
+        // }
+        //free(game->map->map[i]);
+        i++;
+    }
+    //free(game->map->map);
+    //game->map->map = map;
+    i = 0;
+    return 0;
+}

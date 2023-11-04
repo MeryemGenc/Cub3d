@@ -39,7 +39,7 @@ typedef struct  s_game
 int map_init(char *map_name, t_game *game);
 int load_textures(int fd, t_game *game);
 int print_err(char *str);
-// int map_parsing(t_game *game);
+int map_parsing(t_game *game);
 
 
 #endif
