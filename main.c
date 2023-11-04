@@ -14,6 +14,8 @@ int main(int argc, char **argv)
         return print_err("Wrong argument");
     game = malloc(sizeof(game));
     map_init(argv[1], game);
+    free(game->map);
+    free(game);
 
     return 0;
 }

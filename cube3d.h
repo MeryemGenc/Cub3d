@@ -32,14 +32,14 @@ typedef struct  s_game
 {
     void *mlx;
     void *win;
-    t_map map;
+    t_map *map;
 
 } t_game;
 
 int map_init(char *map_name, t_game *game);
 int load_textures(int fd, t_game *game);
 int print_err(char *str);
-int map_parsing(t_game *game, char *map);
+// int map_parsing(t_game *game);
 
 
 #endif

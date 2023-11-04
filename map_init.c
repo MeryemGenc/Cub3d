@@ -3,31 +3,29 @@
 // map i oku ve struct a at
 // struct üzerinden kontrolleri yap
     // ***********.cub uzantısı 
-    // map ulaşılabilir mi
+    // ***********map ulaşılabilir mi
     // map içindeki .xpm dosya yolları doğru mu
     // map içindeki .xpm dosyalarını 1 struct içerisine at-depola
     // map duvarlarla çevrili mi?
     // map içindeki bilgiler doğru mu?
 // map'i direkt game->map structına atamalı mıyım? önce kontrol sonra atamamı olsun? ne verim abime.
 
-int read_map_line(int fd, char *map, t_game *game)
+int read_map_line(int fd, t_game *game)
 {
     char *line; 
-    
-    map = malloc(1);
-    game->map.map_X = 0;
-    game->map.map_Y = 0;
+
+    game->map->map_X = 0;
+    game->map->map_Y = 0;
     while (1)
     {
         line = get_next_line(fd);
         if (!line || line[0] == '\n')
             break;
-        // if (line[0] == '\n')
-        //     break;
-        game->map.map_Y++;
-        map = ft_gnl_strjoin(map, line);
-        if ((int)ft_strlen(line) > game->map.map_X)
-            game->map.map_X = ft_strlen(line);
+        // if (line[0] == '\n') break;
+        game->map->map_Y++;
+        //map = ft_gnl_strjoin(map, line);
+        if ((int)ft_strlen(line) > game->map->map_X)
+            game->map->map_X = (int)ft_strlen(line);
         if (line) 
             free(line);
     }
@@ -39,9 +37,7 @@ int read_map_line(int fd, char *map, t_game *game)
 int create_map(int fd,t_game *game)
 {
     char *line; 
-    char *map;
 
-    map  = NULL;
     while (1)
     {
         line = get_next_line(fd);
@@ -49,8 +45,9 @@ int create_map(int fd,t_game *game)
             break;
         free(line);
     }
-    read_map_line(fd, map, game); // map i free le - fd yi kapa
-    map_parsing(game, map);
+    read_map_line(fd, game); // map i free le - fd yi kapa
+    printf("%d,%d", game->map->map_X, game->map->map_Y);
+    //map_parsing(game);
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
     return 0;
@@ -84,6 +81,7 @@ int map_init(char *map_name, t_game *game)
 {
     if (check_map_extension(map_name))
         return 1;
+    game->map = malloc(sizeof(t_map));
     if (read_map(map_name, game))
         return 1;
 
