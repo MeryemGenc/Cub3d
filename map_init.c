@@ -39,14 +39,7 @@ int create_map(int fd,t_game *game)
 {
     char *line; 
 
-    while (1)
-    {
-        line = get_next_line(fd);
-        printf("%s", line);
-        if (!line || line[0] == "\n")
-            break;
-        free(line);
-    }
+    get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
     read_map_line(fd, game); // map i free le - fd yi kapa
     printf("\n%d,%d", game->map->map_X, game->map->map_Y);
     //map_parsing(game);
@@ -65,7 +58,7 @@ int read_map(char *map_name, t_game *game)
         return print_err("Map file can not open.") - 49; // bunun NULL döndürmesi gerek.NULL döndürüyor mu? KONTROL ET
     load_textures(fd, game); // map'in üst kısmının yanlış verilmeyeceğini varsayıp kontrol etmedim.
     create_map(fd, game);
-
+    close(fd);
     return 0; // başarı durumu
 }
 
