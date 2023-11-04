@@ -6,7 +6,7 @@ SOURCES = $(wildcard *.c  map/*.c libft/*.c libft/get_next_line/*.c)
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 
-CFLAGS =  -Iinclude -Ilibft 
+CFLAGS =  -Wall -Wextra -Werror -Iinclude -Ilibft 
 
 #MLX = libmlx.a -framework OpenGL -framework AppKit
 

@@ -3,7 +3,6 @@
 int map_parsing(t_game *game, char *map)
 {
     int i;
-    int j;
     char **tmp_map;
 
     i = 0;
@@ -15,4 +14,10 @@ int map_parsing(t_game *game, char *map)
         printf("%s", tmp_map[i]);
         i++;
     }
+    i = 0;
+    while(tmp_map[i])
+        free(tmp_map[i++]);
+    free(tmp_map);
+
+    return 0;
 }

@@ -14,12 +14,11 @@ int read_map_line(int fd, char *map, t_game *game)
 {
     char *line; 
     
+    map = malloc(1);
     game->map.map_X = 0;
     game->map.map_Y = 0;
     while (1)
     {
-        if (line) 
-            free(line);
         line = get_next_line(fd);
         if (!line || line[0] == '\n')
             break;
@@ -27,8 +26,10 @@ int read_map_line(int fd, char *map, t_game *game)
         //     break;
         game->map.map_Y++;
         map = ft_gnl_strjoin(map, line);
-        if (ft_strlen(line) > game->map.map_X)
+        if ((int)ft_strlen(line) > game->map.map_X)
             game->map.map_X = ft_strlen(line);
+        if (line) 
+            free(line);
     }
     if (line) 
         free(line);
@@ -40,6 +41,7 @@ int create_map(int fd,t_game *game)
     char *line; 
     char *map;
 
+    map  = NULL;
     while (1)
     {
         line = get_next_line(fd);
@@ -51,14 +53,12 @@ int create_map(int fd,t_game *game)
     map_parsing(game, map);
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
-    
+    return 0;
     // satır okuycam  +  okunan satırları **map e atcam
 }
 
 int read_map(char *map_name, t_game *game)
 {
-    char **map;
-    int i;
     int fd;
 
     fd = open(map_name, O_RDONLY);

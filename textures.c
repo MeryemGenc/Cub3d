@@ -5,6 +5,7 @@
 int load_textures(int fd, t_game *game)
 {
     char *line;
+    (void)game;
 
     line = NULL;
     while (1)
