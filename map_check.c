@@ -25,7 +25,6 @@ int map_parsing(t_game *game)
             j++;
         }
         map[i][j] = '\0';
-        free(game->map->map[i]);
         i++;
     }
     free(game->map->map);
