@@ -41,7 +41,7 @@ int create_map(int fd,t_game *game)
 
     get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
     tmp_map = read_map_line(fd, game);
-    printf("%s", tmp_map);
+    //printf("%s", tmp_map);
     game->map->map = ft_split(tmp_map, '\n'); // sonunda sadece 1 adet \n var
     if (!game->map->map ||!game->map->map[0])
         printf("HATA 1");
@@ -80,7 +80,7 @@ int map_init(char *map_name, t_game *game)
 {
     if (check_map_extension(map_name))
         return 1;
-    game->map = malloc(sizeof(t_map)); // gerek var mı?
+    //game->map = malloc(sizeof(t_map)); // gerek var mı?
     if (read_map(map_name, game))
         return 1;
 
