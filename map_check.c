@@ -11,13 +11,14 @@ int map_parsing(t_game *game)
 
     i = 0;
     j = 0;
-    map = (char **)malloc(game->map->map_X * game->map->map_X); printf("1");
+    map = (char **)malloc(game->map->map_X * game->map->map_X);
     while(i < game->map->map_Y)
     {
-        j = 0;
+        j = 0; printf("1");
         printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(game->map->map[i])); // 33 -> 32 
+        printf("2");
         while (j < game->map->map_X)
-        {
+        {printf("3");
             if (j < (int)ft_strlen(game->map->map[i]) - 1)
                 map[i][j] = game->map->map[i][j];
             else
