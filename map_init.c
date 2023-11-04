@@ -43,7 +43,8 @@ int create_map(int fd,t_game *game)
     tmp_map = read_map_line(fd, game);
     printf("%s", tmp_map);
     game->map->map = ft_split(tmp_map, '\n'); // sonunda sadece 1 adet \n var
-    printf("%s", game->map->map[1]);
+    if (!game->map->map ||!game->map->map[0])
+        printf("HATA 1");
     map_parsing(game); // hata olursa 1 değişkene al bunu.
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
@@ -79,7 +80,7 @@ int map_init(char *map_name, t_game *game)
 {
     if (check_map_extension(map_name))
         return 1;
-    game->map = malloc(sizeof(t_map));
+    game->map = malloc(sizeof(t_map)); // gerek var mı?
     if (read_map(map_name, game))
         return 1;
 
