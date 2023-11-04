@@ -15,7 +15,6 @@ char *read_map_line(int fd, t_game *game)
     char *line;
     char *tmp_map;
 
-    tmp_map = malloc(1);
     game->map->map_X = 0;
     game->map->map_Y = 1;
     while (1)
