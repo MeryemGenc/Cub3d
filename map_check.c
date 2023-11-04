@@ -15,8 +15,8 @@ int map_parsing(t_game *game)
     while(i < game->map->map_Y)
     {
         j = 0; printf("1");
-        printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(game->map->map[i])); // 33 -> 32 
-        printf("2");
+        //printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(game->map->map[i])); // 33 -> 32 
+        printf("%s", game->map->map[i]);
         while (j < game->map->map_X)
         {printf("3");
             if (j < (int)ft_strlen(game->map->map[i]) - 1)
