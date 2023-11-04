@@ -40,10 +40,9 @@ int create_map(int fd,t_game *game)
     char *tmp_map;
 
     get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
-    tmp_map = read_map_line(fd, game); printf("1");
-    game->map->map = ft_split(tmp_map, '\n'); // sonunda sadece 1 adet \n var 
-    printf("2");
-    free(tmp_map);
+    tmp_map = read_map_line(fd, game);
+    game->map->map = ft_split(tmp_map, '\n'); // sonunda sadece 1 adet \n var
+    free(tmp_map); printf("1");
     map_parsing(game); // hata olursa 1 değişkene al bunu.
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
