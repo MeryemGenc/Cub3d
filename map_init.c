@@ -37,7 +37,7 @@ int read_map_line(int fd, t_game *game)
 
 int create_map(int fd,t_game *game)
 {
-    char *line; 
+    //char *line; 
 
     get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
     read_map_line(fd, game); // map i free le - fd yi kapa
