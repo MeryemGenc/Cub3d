@@ -18,7 +18,7 @@ int map_parsing(t_game *game)
         printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(game->map->map[i])); // 33 -> 32 
         while (j < game->map->map_X)
         {
-            if (j < ft_strlen(game->map->map[i]) - 1)
+            if (j < (int)ft_strlen(game->map->map[i]) - 1)
                 map[i][j] = game->map->map[i][j];
             else
                 map[i][j] = '*';
