@@ -30,7 +30,6 @@ char *read_map_line(int fd, t_game *game)
         if (line) 
             free(line);
     }
-    printf("%s", tmp_map);
     // if (line) 
     //     free(line);
     return tmp_map;
@@ -41,9 +40,9 @@ int create_map(int fd,t_game *game)
     //char *tmp_map; 
 
     get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
+    printf("%s", read_map_line(fd, game));
     // tmp_map = read_map_line(fd, game); // map i free le - fd yi kapa
-    printf("map: %s",read_map_line(fd, game)); // map i free le - fd yi kapa
-    printf("\n%d,%d", game->map->map_X, game->map->map_Y);
+    // map i free le - fd yi kapa
     //map_parsing(game);
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
