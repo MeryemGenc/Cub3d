@@ -10,37 +10,39 @@
     // map içindeki bilgiler doğru mu?
 // map'i direkt game->map structına atamalı mıyım? önce kontrol sonra atamamı olsun? ne verim abime.
 
-int read_map_line(int fd, t_game *game)
+char *read_map_line(int fd, t_game *game)
 {
-    char *line; 
+    char *line;
+    char *tmp_map;
 
+    tmp_map = malloc(1);
     game->map->map_X = 0;
-    game->map->map_Y = 0;
+    game->map->map_Y = 1;
     while (1)
     {
         line = get_next_line(fd);
-        //printf("%s", line);
-        if (!line || line[0] == '\n')
+        if (!line)
             break;
-        // if (line[0] == '\n') break;
         game->map->map_Y++;
-        //map = ft_gnl_strjoin(map, line);
+        tmp_map = ft_gnl_strjoin(tmp_map, line);
         if ((int)ft_strlen(line) > game->map->map_X)
-            game->map->map_X = (int)ft_strlen(line);
+            game->map->map_X = (int)ft_strlen(line); // 35 okudu (\n+NULL)
         if (line) 
             free(line);
     }
-    if (line) 
-        free(line);
-    return 0;
+    printf("%s", tmp_map);
+    // if (line) 
+    //     free(line);
+    return tmp_map;
 }
 
 int create_map(int fd,t_game *game)
 {
-    char *line; 
+    //char *tmp_map; 
 
     get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
-    read_map_line(fd, game); // map i free le - fd yi kapa
+    // tmp_map = read_map_line(fd, game); // map i free le - fd yi kapa
+    printf("map: %s",read_map_line(fd, game)); // map i free le - fd yi kapa
     printf("\n%d,%d", game->map->map_X, game->map->map_Y);
     //map_parsing(game);
     // game-<map e malloc ile yer ayırıp ataması yapılacak
