@@ -1,57 +1,92 @@
 #include "libft.h"
 
-static void	ft_allocate(char **tab, char const *s, char sep)
+static char	**free_array(char **ptr, int i)
 {
-	char		**tab_p;
-	char const	*tmp;
-
-	tmp = s;
-	tab_p = tab;
-	while (*tmp)
+	while (i > 0)
 	{
-		while (*s == sep)
-			++s;
-		tmp = s;
-		while (*tmp && *tmp != sep)
-			++tmp;
-		if (tmp > s)
-		{
-			*tab_p = ft_substr(s, 0, tmp - s);
-			s = tmp;
-			++tab_p;
-		}
+		i--;
+		free(ptr[i]);
 	}
-	*tab_p = NULL;
+	free(ptr);
+	return (0);
 }
 
-static int	ft_count_words(char const *s, char sep)
+static int	ft_count_words(char const *str, char c)
 {
-	int	word_count;
+	int	i;
+	int	count;
 
-	word_count = 0;
-	while (*s)
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
 	{
-		while (*s == sep)
-			++s;
-		if (*s)
-			++word_count;
-		while (*s && *s != sep)
-			++s;
+		if (str[i] == c)
+			i++;
+		else
+		{
+			count++;
+			while (str[i] && str[i] != c)
+				i++;
+		}
 	}
-	return (word_count);
+	return (count);
+}
+
+static char	*ft_putword(char *word, char const *s, int i, int word_len)
+{
+	int	j;
+
+	j = 0;
+	while (word_len > 0)
+	{
+		word[j] = s[i - word_len];
+		j++;
+		word_len--;
+	}
+	word[j] = '\0';
+	return (word);
+}
+
+static char	**ft_split_words(char const *s, char c, char **s2, int num_words)
+{
+	int	i;
+	int	word;
+	int	word_len;
+
+	i = 0;
+	word = 0;
+	word_len = 0;
+	while (word < num_words)
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		while (s[i] && s[i] != c)
+		{
+			i++;
+			word_len++;
+		}
+		s2[word] = (char *)malloc(sizeof(char) * (word_len + 1));
+		if (!s2)
+			return (free_array(s2, word));
+		ft_putword(s2[word], s, i, word_len);
+		word_len = 0;
+		word++;
+	}
+	s2[word] = 0;
+	return (s2);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**new;
-	int		size;
+	char			**s2;
+	unsigned int	num_words;
 
 	if (!s)
-		return (NULL);
-	size = ft_count_words(s, c);
-	new = (char **)malloc(sizeof(char *) * (size + 1));
-	if (!new)
-		return (NULL);
-	ft_allocate(new, s, c);
-	return (new);
+		return (0);
+	num_words = ft_count_words(s, c);
+	s2 = (char **)malloc(sizeof(char *) * (num_words + 1));
+	if (!s2)
+		return (0);
+	s2 = ft_split_words(s, c, s2, num_words);
+	return (s2);
 }
