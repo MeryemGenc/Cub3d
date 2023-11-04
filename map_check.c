@@ -11,7 +11,7 @@ int map_parsing(t_game *game)
 
     i = 0;
     j = 0;
-    map = (char **)malloc(game->map->map_X * game->map->map_X);
+    map = (char **)malloc(game->map->map_X * game->map->map_X); printf("1");
     while(i < game->map->map_Y)
     {
         j = 0;
