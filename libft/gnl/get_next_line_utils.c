@@ -53,7 +53,7 @@ char	*ft_gnl_strjoin(char *s1, char *s2)
 	{
 		s3[i + j] = s2[j];
 	}
-	s3[i + j] = 0;
+	s3[i + j] = '\0';
 	free(s1);
 	return (s3);
 }

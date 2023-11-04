@@ -15,38 +15,47 @@ char *read_map_line(int fd, t_game *game)
     char *line;
     char *tmp_map;
 
+    line = 0;
+    tmp_map = 0;
     game->map->map_X = 0;
-    game->map->map_Y = 1;
+    game->map->map_Y = 1; printf("\n100");
     while (1)
     {
+        if (line)
+            free(line);
+        line = get_next_line(fd);
+        if (ft_strncmp(line, "\n", 1))
+            break;
+    }
+    while (1)
+    {
+        tmp_map = ft_gnl_strjoin(tmp_map, line);
+        // if ((int)ft_strlen(line) > game->map->map_X)
+        //     game->map->map_X = (int)ft_strlen(line);
+        free(line);
         line = get_next_line(fd);
         if (!line)
             break;
         game->map->map_Y++;
-        tmp_map = ft_gnl_strjoin(tmp_map, line);
-        if ((int)ft_strlen(line) > game->map->map_X)
-            game->map->map_X = (int)ft_strlen(line); // 35 okudu (\n+NULL)
-        if (line) 
-            free(line);
     }
-    // if (line) 
-    //     free(line);
+    printf("aaa: %s", tmp_map);
     return tmp_map;
 }
 
 int create_map(int fd,t_game *game)
 {
-    char *tmp_map;
+    //char *tmp_map;
 
-    get_next_line(fd); // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
-    tmp_map = read_map_line(fd, game);
-    //printf("aaa: %s", str[0]);
+     // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
+    //tmp_map = read_map_line(fd, game);
+    read_map_line(fd, game);
+    printf("bbb");
     //game->map->map = ft_split(tmp_map, '\n'); // sonunda sadece 1 adet \n var
     //if (!game->map->map || !game->map->map[0])
-    map_parsing(game); // hata olursa 1 değişkene al bunu.
+    //map_parsing(game); // hata olursa 1 değişkene al bunu.
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
-    free(tmp_map);
+    // free(tmp_map);
     return 0;
     // satır okuycam  +  okunan satırları **map e atcam
 }
