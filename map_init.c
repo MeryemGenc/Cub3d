@@ -42,8 +42,10 @@ int create_map(int fd,t_game *game)
     while (1)
     {
         line = get_next_line(fd);
-        printf("%s", line);
-        if (!line || line[0] == "\n")
+        printf("*%s", line);
+        if (!line)
+            break;
+        if (line[0] == '\n')
             break;
         free(line);
     }
