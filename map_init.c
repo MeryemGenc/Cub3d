@@ -19,7 +19,7 @@ int read_map_line(int fd, t_game *game)
     while (1)
     {
         line = get_next_line(fd);
-        printf("%s", line);
+        //printf("%s", line);
         if (!line || line[0] == '\n')
             break;
         // if (line[0] == '\n') break;
@@ -42,7 +42,8 @@ int create_map(int fd,t_game *game)
     while (1)
     {
         line = get_next_line(fd);
-        if (!line || !strncmp(line, "\n", 1))
+        printf("%s", line);
+        if (!line || line[0] == "\n")
             break;
         free(line);
     }

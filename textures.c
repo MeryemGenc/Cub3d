@@ -14,7 +14,7 @@ int load_textures(int fd, t_game *game)
         if (!line)
             return 1;
         // burada map 'e kadar okunan texture'lar ve gloor-ceiling ayarı yapılır - şimdilik yapmıyorum
-        if (!ft_strncmp(line, "C ", 2)) // aynısa 0 döndüğünü varsayıyorum.
+        if (line[0] == 'C') // aynısa 0 döndüğünü varsayıyorum.
         {
             free(line);
             return 0;
