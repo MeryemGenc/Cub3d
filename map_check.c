@@ -6,15 +6,15 @@
 int map_parsing(t_game *game)
 {
     int i;
-    int j;
+    //int j;
     //char **map;
 
     i = 0;
-    j = 0;
+    //j = 0;
     //map = (char **)malloc(game->map->map_X * game->map->map_X);
     while(i < game->map->map_Y)
     {
-        j = 0;
+        //j = 0;
         printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(game->map->map[i])); // dene + sil 
         // while (j < game->map->map_X)
         // {
@@ -29,6 +29,5 @@ int map_parsing(t_game *game)
     }
     //free(game->map->map);
     //game->map->map = map;
-    i = 0;
     return 0;
 }
