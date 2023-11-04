@@ -19,6 +19,7 @@ int read_map_line(int fd, t_game *game)
     while (1)
     {
         line = get_next_line(fd);
+        printf("%s", line);
         if (!line || line[0] == '\n')
             break;
         // if (line[0] == '\n') break;
@@ -46,7 +47,7 @@ int create_map(int fd,t_game *game)
         free(line);
     }
     read_map_line(fd, game); // map i free le - fd yi kapa
-    printf("%d,%d", game->map->map_X, game->map->map_Y);
+    printf("\n%d,%d", game->map->map_X, game->map->map_Y);
     //map_parsing(game);
     // game-<map e malloc ile yer ayırıp ataması yapılacak
 
