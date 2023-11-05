@@ -1,5 +1,8 @@
 #include "cube3d.h"
 
+// malloc kontrollerini yap - UNUTMA
+
+
 int print_err(char *str)
 { // exit yapılması gerekmez mi
     printf("%s", str);

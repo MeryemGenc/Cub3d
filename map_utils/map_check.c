@@ -17,10 +17,11 @@ int map_parsing(t_map *map, char *line)
     j = 0;
     indx = 0;
     printf("kkkkkkkkkk");
-    this_map = (char **)malloc(map->map_H * map->map_W); // buranın tamı tamına ayırıldığına emin ol
+    this_map = (char **)malloc((map->map_H * map->map_W) * sizeof(char)); // buranın tamı tamına ayırıldığına emin ol
     while(i < map->map_H)
     {
-        j = 0; printf("1");
+        j = 0; 
+        printf("1");
         while (line[indx] && line[indx] != '\n')
         {   
             printf("%c", line[indx]);
@@ -28,7 +29,6 @@ int map_parsing(t_map *map, char *line)
             j++;
             indx++;
         }
-        indx++;
         while (j < map->map_W)
         {   
             printf("*");
@@ -37,6 +37,7 @@ int map_parsing(t_map *map, char *line)
         }
         printf("\n");
         this_map[i][j] = '\0';
+        indx++;
         i++;
     }
     //map->map = this_map;
