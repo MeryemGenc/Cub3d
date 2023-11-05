@@ -6,28 +6,25 @@
 
 
 int map_parsing(t_map *map, char *line)
-{printf("sgrgsd");
+{
+    printf("sgrgsd");
     int i;
     int j;
     int indx;
-    //char **this_map;
+    char **this_map;
 
     i = 0;
     j = 0;
-    indx = 0;printf("kkkkkkkkkk");
-    //this_map = (char **)malloc(map->map_H * map->map_W);
+    indx = 0;
+    printf("kkkkkkkkkk");
+    this_map = (char **)malloc(map->map_H * map->map_W); // buranın tamı tamına ayırıldığına emin ol
     while(i < map->map_H)
     {
         j = 0; printf("1");
-        // printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(map->map[i])); // 33 -> 32 
-        // printf("\n%s", map->map[i]);
         while (line[indx] && line[indx] != '\n')
         {   
             printf("%c", line[indx]);
-            // if (j < (int)ft_strlen(map->map[i]) - 1)
-            //     this_map[i][j] = map->map[i][j];
-            // else
-            //     this_map[i][j] = '*';
+            this_map[i][j] = line[indx];
             j++;
             indx++;
         }
@@ -35,13 +32,11 @@ int map_parsing(t_map *map, char *line)
         while (j < map->map_W)
         {   
             printf("*");
-            // if (j < (int)ft_strlen(map->map[i]) - 1)
-            //     this_map[i][j] = map->map[i][j];
-            // else
-            //     this_map[i][j] = '*';
+            this_map[i][j] = '*';
             j++;
         }
-        //this_map[i][j] = '\0';
+        printf("\n");
+        this_map[i][j] = '\0';
         i++;
     }
     //map->map = this_map;
@@ -53,6 +48,7 @@ int map_parsing(t_map *map, char *line)
     //     printf("\n%s", map->map[a]);
     //     a++;
     // }
+    free(this_map); // map->map e atama yaptıktan sonra sil burayı - ya da direkt tüm char atamalarını map->map e yap
     free(line);
     return 0;
 }
