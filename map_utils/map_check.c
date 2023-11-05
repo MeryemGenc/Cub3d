@@ -9,36 +9,50 @@ int map_parsing(t_map *map, char *line)
 {
     int i;
     int j;
-    char **this_map;
+    int indx;
+    //char **this_map;
 
     i = 0;
     j = 0;
-    this_map = (char **)malloc(map->map_H * map->map_W);
+    indx = 0;
+    //this_map = (char **)malloc(map->map_H * map->map_W);
     while(i < map->map_H)
     {
         j = 0; printf("1");
         // printf("\nmap %d. satir uzunluk: %d", i, (int)ft_strlen(map->map[i])); // 33 -> 32 
         // printf("\n%s", map->map[i]);
+        while (line[indx] && line[indx] != '\n')
+        {   
+            printf("%c", line[indx]);
+            // if (j < (int)ft_strlen(map->map[i]) - 1)
+            //     this_map[i][j] = map->map[i][j];
+            // else
+            //     this_map[i][j] = '*';
+            j++;
+            indx++;
+        }
+        indx++;
         while (j < map->map_H)
-        {   //printf("3");
-            if (j < (int)ft_strlen(map->map[i]) - 1)
-                this_map[i][j] = map->map[i][j];
-            else
-                this_map[i][j] = '*';
+        {   
+            printf("*");
+            // if (j < (int)ft_strlen(map->map[i]) - 1)
+            //     this_map[i][j] = map->map[i][j];
+            // else
+            //     this_map[i][j] = '*';
             j++;
         }
-        this_map[i][j] = '\0';
+        //this_map[i][j] = '\0';
         i++;
     }
-    map->map = this_map;
+    //map->map = this_map;
 
-    int a = 0;
-    printf("----------------------------  MAP  ------------------------------");
-    while (a < map->map_H)
-    {
-        printf("\n%s", map->map[a]);
-        a++;
-    }
+    // int a = 0;
+    // printf("----------------------------  MAP  ------------------------------");
+    // while (a < map->map_H)
+    // {
+    //     printf("\n%s", map->map[a]);
+    //     a++;
+    // }
     free(line);
     return 0;
 }
