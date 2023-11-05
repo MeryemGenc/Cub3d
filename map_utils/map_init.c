@@ -57,13 +57,18 @@ char *create_map(int fd, t_map *map)
         line = get_next_line(fd);
         if (!line)
             break;
+        if (line[0] == '\n')
+        {
+            free(line);
+            break;
+        }
         if (map->map_W < (int)ft_strlen(line))
             map->map_W = (int)ft_strlen(line);
         tmp_map = ft_gnl_strjoin(tmp_map, line);
         free(line);
         map->map_H++;
     }
-
+    //tmp_map = ft_gnl_strjoin(tmp_map, "\0"); bunu da DENE
 
 
      // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
@@ -93,9 +98,9 @@ int read_map(char *map_name, t_map *map)
     free(line);
     line = create_map(fd, map);
     printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
-    printf("\nline: %s", line);
+    printf("\nline: %s", line); // line ınson satırında 1 sıkıntı var
     int a = 0;
-    while (a < 20)
+    while (a++ < 20)
     {
     printf("*");
     }
