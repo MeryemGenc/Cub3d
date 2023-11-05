@@ -22,12 +22,10 @@ int map_check(t_map *map)
                 return (print_err("2Map must be surround by walls."));
 			if (flag == 1 && map->map[i][j] == ' ')
 			{
-				if (map->map[i][j - 1] && ft_strchr("0NSEW", map->map[i][j - 1]))
-                    return (print_err("2Map must be surround by walls."));
+                if (ft_strchr("NSEW0", map->map[i][j - 1])) // duvardan sonra space varsa flag = 0
+                    return (print_err("3Map must be surround by walls."));
 				flag = 0;
 			}
-			if (!map->map[i][j+1] && ft_strchr("NSEW0", map->map[i][j]))
-                return (print_err("2Map must be surround by walls."));
         }
         i++;
     }
