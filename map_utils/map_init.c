@@ -97,6 +97,7 @@ int read_map(char *map_name, t_map *map)
         printf("\n%s", map->map[i]);
         i++;
     }
+    free(line);
     close(fd);
     return 0;
 }
