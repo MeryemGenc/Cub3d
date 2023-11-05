@@ -14,6 +14,7 @@ int map_check(t_map *map)
         j = -1;
         while (map->map[i][++j] && j < (int)ft_strlen(map->map[i]))
         {
+            printf("%d. satir uzunluk: %d", (int)ft_strlen(map->map[i])); // deneme
             if (flag == 0 && map->map[i][j] == '1') // flag 0 iken duvar
                 flag = 1;
             if (flag == 0 && ft_strchr("NSEW0", map->map[i][j])) // flag 0 iken karakter||yüzey
@@ -21,7 +22,7 @@ int map_check(t_map *map)
             if (!map->map[i][j + 1] && map->map[i][j] != '1' && flag)// duvar kapanmadan bitiyorsa map
             {
                 printf("sssssssssssssssssssssssssss");
-                printf("s: %s", map->map[i]);
+                // printf("s: %s", map->map[i]);
                 return (print_err("2Map must be surround by walls."));
             }
 			if (flag == 1 && map->map[i][j] == ' ')
