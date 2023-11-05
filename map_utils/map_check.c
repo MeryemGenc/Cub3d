@@ -8,13 +8,11 @@
 int map_parsing(t_map *map, char *line)
 {
     int i = 0;
-    char **this_map;
 
-    (void)map;
-    this_map = ft_split(line, '\n');
-    while (this_map[i])
+    map->map = ft_split(line, '\n');
+    while (map->map[i])
     {
-        printf("\n%s", this_map[i]);
+        printf("\n%s", map->map[i]);
         i++;
     }
     return 0;
