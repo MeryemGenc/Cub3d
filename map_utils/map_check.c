@@ -17,7 +17,7 @@ int map_check(t_map *map)
                 flag = 1;
             if (flag == 0 && ft_strchr("NSEW0", map->map[i][j]))
                 return (print_err("1Map must be surround by walls."));
-            if ((!map->map[i][j + 1] || map->map[i][j + 1] == '\n') && map->map[i][j] != '1')
+            if (!map->map[i][j + 2] && map->map[i][j + 1] != '1')
                 return (print_err("2Map must be surround by walls."));
 			if (flag == 1 && map->map[i][j] == ' ')
 			{
