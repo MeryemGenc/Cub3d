@@ -25,22 +25,25 @@ char *create_map(int fd, t_map *map)
 {
     char *line;
     char *tmp_map;
+    int counter;
 
     line = 0;       // sorun olmayacaksa bunları sil - DENE
     tmp_map = 0;    // sorun olmayacaksa bunları sil - DENE
-    map->map_H = 0;
-    map->map_W = 0;
+    counter = 0;
     while (1)
     {
         line = get_next_line(fd);
         if (!line)
             break;
+        if (!init_texture(line, map))
+            map->player_start_indx.y = counter;
         if (map->map_W < (int)ft_strlen(line))
             map->map_W = (int)ft_strlen(line);
         tmp_map = ft_gnl_strjoin(tmp_map, line);
         free(line);
-        map->map_H++;
+        counter++;
     }
+    map->map_W = counter;
     return (tmp_map);
 }
 
