@@ -93,6 +93,13 @@ int read_map(char *map_name, t_map *map)
     free(line);
     line = create_map(fd, map);
     printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
+    printf("\nline: %s", line);
+    int a = 0;
+    while (a < 20)
+    {
+    printf("*");
+    }
+    
     map_parsing(map, line); // map_parsing(map, create_map(fd, map)); - DENE
     close(fd);
     return 0;
