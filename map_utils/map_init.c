@@ -56,6 +56,7 @@ char *create_map(int fd, t_map *map)
     while (1)
     {
         line = get_next_line(fd);
+        printf("\ntmp: %s", tmp_map);
         if (!line)
             break;
         if (!ft_strncmp(line, const_nl, 1)) // const char* istiyor arkadas
@@ -97,7 +98,7 @@ int read_map(char *map_name, t_map *map)
     get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
     line = create_map(fd, map);
     printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
-    printf("\nline: %s", line); // line sonunda new line var
+    //printf("\nline: %s", line); // line sonunda new line var
     printf("+++++++++++++++++++");
     free(line);
     // printf("\nline: %s", line);
