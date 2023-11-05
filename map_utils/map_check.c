@@ -1,6 +1,6 @@
-#include "../cube3d.h"
+#include "../cube3d.h" // cube değil cub3d.h olacak - DEĞİŞTİR
 
-int map_check(t_map *map)
+int check_horizontal(t_map *map)
 {
     int i;
     int j;
@@ -11,7 +11,7 @@ int map_check(t_map *map)
     {
         flag = 0;
         j = -1;
-        while (map->map[i][++j] && j < (int)ft_strlen(map->map[i])-1)
+        while (map->map[i][++j] && j < (int)ft_strlen(map->map[i]) - 1)
         {
             if (flag == 0 && map->map[i][j] == '1')
                 flag = 1;
@@ -27,6 +27,47 @@ int map_check(t_map *map)
 			}
         }
     }
+    return (0);
+}
+
+    //         1111111111111111111111111
+    //              1000000000110000000000001
+    //         1011000001110000000000001
+
+int check_vertical(t_map *map) // napacaz şimdi ?
+{
+    int i;
+    int j;
+    int flag;
+
+    j = -1;
+    while (map->map[++j] && j < map->map_W - 1) // sütun
+    {
+        flag = 0;
+        i = -1;
+        while ( ++i < map->map_H) // satır
+        {
+            if (!map->map[i][j] || map->map[i][j] == ' ')
+            {
+                if (map->map[i - 1][j] && ft_strchr("NSEW0", map->map[i - 1][j]))
+                    return (print_err("1Map must be surround by walls."));
+                if (map->map[i + 1][j] && ft_strchr("NSEW0", map->map[i + 1][j]))
+                    return (print_err("2Map must be surround by walls."));
+                flag = 0;
+            }
+            if (!flag && map->map[i][j] && ft_strchr("NSEW0", map->map[i][j])) // ilk sütun
+                return (print_err("3Map must be surround by walls."));
+            if (map->map[i][j] && map->map[i][j] == '1')
+                flag = 1;
+        }
+    }
+    return (0);
+}
+
+int map_check(t_map *map)
+{
+    if (check_horizontal(map) || check_vertical(map))
+        return (1);
     return (0);
 }
 /*
@@ -57,14 +98,3 @@ static int	verticalcheck(char **map, int i, int j, int flag)
 	}
 	return (1);
 }*/
-
-// Hata: 0 - Başarı: 1
-// space ten sonra char ya da zemin varsa: space tekyen flag=0 yaptığımız için HATA verir. 
-// int	mapcheck(char **map)
-// {
-// 	if (!horizontalcheck(map, -1, -1, 0))
-// 		return (0);
-// 	if (!verticalcheck(map, -1, -1, 0))
-// 		return (0);
-// 	return (1);
-// }

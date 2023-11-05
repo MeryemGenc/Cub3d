@@ -13,7 +13,6 @@ int load_textures(int fd, t_map *map)
         line = get_next_line(fd);
         if (!line)
             return (1);
-        // burada map 'e kadar okunan texture'lar ve gloor-ceiling ayarı yapılır - şimdilik yapmıyorum
         if (line[0] == 'C')
         {
             free(line);
@@ -22,6 +21,23 @@ int load_textures(int fd, t_map *map)
         free(line);
     }
     return (1);
+}
+
+int init_texture(char *line, t_map *map)
+{
+    int i;
+
+    i = -1;
+    while (line[++i])
+    {
+        if (ft_strchr("NSEW", line[i]))
+        {
+            map->player_start_indx.x = i;
+            map->player_start = line[i];
+            return 0;
+        }
+    }
+    return 1;
 }
 
 
