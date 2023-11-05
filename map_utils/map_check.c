@@ -2,23 +2,26 @@
 
 int map_check(t_map *map)
 {
-    // int i;
-    // int j;
+    int i;
+    int j;
+    int flag;
 
-    // i = 0;
-    // j = 0;
-    // while (map->map[i] && i < map->map_H)
-    // {
-    //     j = 0;
-    //     while (map->map[i][j] && j < (int)ft_strlen(map->map[i]))
-    //     {
-    //         printf("%c", map->map[i][j]);
-    //         j++;
-    //     }
-    //     printf("\n");
-    //     i++;
-    // }
-    print_map(map);
+    i = -1;
+    while (map->map[++i] && i < map->map_H)
+    {
+        flag = 0;
+        j = -1;
+        while (map->map[i][++j] && j < (int)ft_strlen(map->map[i]))
+        {
+            if (flag == 0 && map->map[i][j] == '1') // flag 0 iken duvar
+                flag = 1;
+            if (flag == 0 && ft_strchr("NSEW0", map->map[i][j])) // flag 0 iken karakter||yüzey
+                return (print_err("Map must be surround by walls."));
+            if (!map->map[i][j+1] && map->map[i][j] != '1')// duvar kapanmadan bitiyorsa map
+                return (print_err("Map must be surround by walls."));
+        }
+        i++;
+    }
     return (0);
 }
 

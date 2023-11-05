@@ -13,8 +13,6 @@
 int print_map(t_map *map) // sil ilerde
 {
     int i = 0;
-    if (!map->map[i])
-        return (1);
     while (map->map[i])
     {
         printf("\n%s", map->map[i]);
