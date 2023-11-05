@@ -20,7 +20,10 @@ int map_check(t_map *map)
             if (!map->map[i][j+1] && map->map[i][j] != '1')// duvar kapanmadan bitiyorsa map
                 return (print_err("2Map must be surround by walls."));
             if (map->map[i][j] == ' ' && (map->map[i][j+1] != '1' || map->map[i][j-1] != '1'))// duvar kapanmadan space varsa
+            {
+                printf("\ny:%s x:%s\n", j,i);
                 return (print_err("2Map must be surround by walls."));
+            }
         }
         i++;
     }
