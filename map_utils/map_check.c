@@ -12,9 +12,9 @@ int map_check(t_map *map)
     {
         flag = 0;
         j = -1;
-        while (map->map[i][++j] && j < (int)ft_strlen(map->map[i]))
+        printf("%d. satir uzunluk: %d", i, (int)ft_strlen(map->map[i])); // deneme - 0. satır: 34
+        while (map->map[i][++j] && j < (int)ft_strlen(map->map[i])-1)
         {
-            printf("%d. satir uzunluk: %d", i, (int)ft_strlen(map->map[i])); // deneme
             if (flag == 0 && map->map[i][j] == '1') // flag 0 iken duvar
                 flag = 1;
             if (flag == 0 && ft_strchr("NSEW0", map->map[i][j])) // flag 0 iken karakter||yüzey
