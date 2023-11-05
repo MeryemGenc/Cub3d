@@ -56,7 +56,7 @@ char *create_map(int fd, t_map *map)
     while (1)
     {
         line = get_next_line(fd);
-        printf("\ntmp: %s", tmp_map);
+        printf("\ntmp: %s-", tmp_map);
         if (!line)
             break;
         if (!ft_strncmp(line, const_nl, 1)) // const char* istiyor arkadas
