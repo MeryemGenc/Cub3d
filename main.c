@@ -16,7 +16,7 @@ int main(int argc, char **argv)
     if (argc != 2)
         return print_err("Wrong argument");
     //game = malloc(sizeof(game));
-    map = (t_map *)malloc(sizeof(t_map));
+    map = (t_map *)malloc(sizeof(t_map *));
     map_init(argv[1], map);
     free(map);
     //free(game);
