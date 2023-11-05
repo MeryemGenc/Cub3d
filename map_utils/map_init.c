@@ -85,24 +85,19 @@ char *create_map(int fd, t_map *map)
 int read_map(char *map_name, t_map *map)
 {
     int fd;
-    // char *line;
+    char *line;
 
     fd = open(map_name, O_RDONLY);
     if (fd < 0)
         return print_err("Map file can not open.");
     load_textures(fd, map); // map'in üst kısmının yanlış verilmeyeceğini varsayıp kontrol etmedim.
-    // line = get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
-    // free(line);
+    line = get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
+    printf("\nline: %s", line);
+    free(line);
     // line = create_map(fd, map);
     // printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
     // printf("\nline: %s", line);
     // printf("\nline: %s", line);
-    // printf("\nline: %s", line);
-    int a = 0;
-    while (a++ < 200)
-    {
-    printf("*");
-    }
     
     //map_parsing(map, line); // map_parsing(map, create_map(fd, map)); - DENE
     close(fd);
