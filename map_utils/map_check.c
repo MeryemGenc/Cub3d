@@ -20,6 +20,7 @@ int map_check(t_map *map)
                 return (print_err("1Map must be surround by walls."));
             if (!map->map[i][j + 1] && map->map[i][j] != '1')// duvar kapanmadan bitiyorsa map
             {
+                printf("sssssssssssssssssssssssssss");
                 printf("s: %s", map->map[i]);
                 return (print_err("2Map must be surround by walls."));
             }
@@ -30,7 +31,6 @@ int map_check(t_map *map)
 				flag = 0;
 			}
         }
-        i++;
     }
     return (0);
 }
