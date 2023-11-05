@@ -47,7 +47,7 @@ char *create_map(int fd, t_map *map)
 {
     char *line;
     char *tmp_map;
-    char *const_nl[] = "\n";
+    char *const_nl = "\n";
 
     line = 0;       // sorun olmayacaksa bunları sil - DENE
     tmp_map = 0;    // sorun olmayacaksa bunları sil - DENE
