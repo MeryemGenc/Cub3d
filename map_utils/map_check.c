@@ -23,6 +23,7 @@ int map_check(t_map *map)
 
 // XOR: farklı bitler için:1 - aynı bitler için: 0
 // hata: return 0
+/*
 static int	horizontalcheck(char **map, int i, int j, int flag)
 {
 	while (map[++i])
@@ -72,7 +73,7 @@ static int	verticalcheck(char **map, int i, int j, int flag)
 		}
 	}
 	return (1);
-}
+}*/
 
 // Hata: 0 - Başarı: 1
 // space ten sonra char ya da zemin varsa: space tekyen flag=0 yaptığımız için HATA verir. 
