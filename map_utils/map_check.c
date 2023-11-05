@@ -2,22 +2,23 @@
 
 int map_check(t_map *map)
 {
-    int i;
-    int j;
+    // int i;
+    // int j;
 
-    i = 0;
-    j = 0;
-    while (map->map[i] && i < map->map_H)
-    {
-        j = 0;
-        while (map->map[i][j] && j < (int)ft_strlen(map->map[i]))
-        {
-            printf("%c", map->map[i][j]);
-            j++;
-        }
-        printf("+\n");
-        i++;
-    }
+    // i = 0;
+    // j = 0;
+    // while (map->map[i] && i < map->map_H)
+    // {
+    //     j = 0;
+    //     while (map->map[i][j] && j < (int)ft_strlen(map->map[i]))
+    //     {
+    //         printf("%c", map->map[i][j]);
+    //         j++;
+    //     }
+    //     printf("\n");
+    //     i++;
+    // }
+    print_map(map);
     return (0);
 }
 

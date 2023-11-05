@@ -10,7 +10,7 @@
 // map'i direkt game->map structına atamalı mıyım? önce kontrol sonra atamamı olsun? ne verim abime.
 
 
-int print_map(t_map *map)
+int print_map(t_map *map) // sil ilerde
 {
     int i = 0;
     if (!map->map[i])

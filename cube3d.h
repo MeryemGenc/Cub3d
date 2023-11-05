@@ -40,6 +40,7 @@ int map_init(char *map_name, t_map *map);
 int load_textures(int fd, t_map *map);
 int print_err(char *str);
 int map_check(t_map *map);
+int print_map(t_map *map); // SİLİNECEK
 
 
 #endif
