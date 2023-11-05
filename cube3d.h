@@ -17,8 +17,8 @@ typedef struct  s_vector
 typedef struct  s_map
 {
     char **map;
-    int map_X;
-    int map_Y;
+    int map_W; // width
+    int map_H; // height
 } t_map;
 
 typedef struct  s_player
@@ -36,10 +36,10 @@ typedef struct  s_game
 
 } t_game;
 
-int map_init(char *map_name, t_game *game);
-int load_textures(int fd, t_game *game);
+int map_init(char *map_name, t_map *map);
+int load_textures(int fd, t_map *map);
 int print_err(char *str);
-int map_parsing(t_game *game);
+int map_parsing(t_map *map);
 
 
 #endif

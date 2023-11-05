@@ -2,15 +2,13 @@ NAME = cub3d
 
 CC = gcc
 
-SOURCES = $(wildcard *.c  map/*.c libft/*.c libft/gnl/*.c)
+SOURCES = $(wildcard *.c map_utils/*.c libft/*.c libft/gnl/*.c)
 
 OBJECTS = $(patsubst %.c, %.o, $(SOURCES))
 
 CFLAGS =  -Wall -Wextra -Werror -Iinclude -Ilibft 
 
 #MLX = libmlx.a -framework OpenGL -framework AppKit
-
-#-Wall -Wextra -Werror
 
 all: $(NAME)
 
