@@ -68,10 +68,11 @@ char *create_map(int fd, t_map *map)
         free(line);
         map->map_H++;
     }
-    //tmp_map = ft_gnl_strjoin(tmp_map, "\0"); bunu da DENE
+    tmp_map = ft_gnl_strjoin(tmp_map, "\n");
+    tmp_map = ft_gnl_strjoin(tmp_map, "\0");
 
 
-     // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
+    // map ile texture dostası arasındaki new line'ları kontrol etmeli miyiz?
     //tmp_map = read_map_line(fd, game);
     //read_map_line(fd, game);
     //printf("bbb");
