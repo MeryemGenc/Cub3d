@@ -95,9 +95,11 @@ int read_map(char *map_name, t_map *map)
     free(line);
     line = create_map(fd, map);
     printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
-    printf("\nline: %s", line); // line ınson satırında 1 sıkıntı var
+    printf("\nline: %s", line);
+    printf("\nline: %s", line);
+    printf("\nline: %s", line);
     int a = 0;
-    while (a++ < 20)
+    while (a++ < 200)
     {
     printf("*");
     }
