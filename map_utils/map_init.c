@@ -47,7 +47,6 @@ char *create_map(int fd, t_map *map)
 {
     char *line;
     char *tmp_map;
-    char *const_nl = "\n";
 
     line = 0;       // sorun olmayacaksa bunları sil - DENE
     tmp_map = 0;    // sorun olmayacaksa bunları sil - DENE
@@ -56,16 +55,8 @@ char *create_map(int fd, t_map *map)
     while (1)
     {
         line = get_next_line(fd);
-        printf("\ntmp: %s-", tmp_map);
         if (!line)
             break;
-        if (!ft_strncmp(line, const_nl, 1)) // const char* istiyor arkadas
-        {
-            //  çıkmıyo
-            printf("\ncikacak mi? : %s\n", line);
-            free(line);
-            break;
-        }
         if (map->map_W < (int)ft_strlen(line))
             map->map_W = (int)ft_strlen(line);
         tmp_map = ft_gnl_strjoin(tmp_map, line);
@@ -98,10 +89,10 @@ int read_map(char *map_name, t_map *map)
     get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
     line = create_map(fd, map);
     printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
-    //printf("\nline: %s", line); // line sonunda new line var
-    printf("+++++++++++++++++++");
+    printf("\nline: %s", line); // line sonunda new line var
+    printf("+++++++++++++++++++\n");
+    printf("\nline: %s", line);
     free(line);
-    // printf("\nline: %s", line);
     
     //map_parsing(map, line); // map_parsing(map, create_map(fd, map)); - DENE
     close(fd);
