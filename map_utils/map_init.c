@@ -47,6 +47,7 @@ char *create_map(int fd, t_map *map)
 {
     char *line;
     char *tmp_map;
+    char *const_nl[] = "\n";
 
     line = 0;       // sorun olmayacaksa bunları sil - DENE
     tmp_map = 0;    // sorun olmayacaksa bunları sil - DENE
@@ -57,7 +58,7 @@ char *create_map(int fd, t_map *map)
         line = get_next_line(fd);
         if (!line)
             break;
-        if (!ft_strncmp(line, "\n", 2))
+        if (!ft_strncmp(line, const_nl, 2)) // const char* istiyor arkadas
         {
             //  çıkmıyo
             printf("\ncikacak mi? : %s\n", line);
