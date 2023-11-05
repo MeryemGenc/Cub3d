@@ -5,19 +5,6 @@
     // game->map->map_X i olana kadar sonuna space koy.
 
 
-int map_parsing(t_map *map, char *line)
-{
-    int i = 0;
-
-    map->map = ft_split(line, '\n');
-    while (map->map[i])
-    {
-        printf("\n%s", map->map[i]);
-        i++;
-    }
-    return 0;
-}
-
 
 /*int map_parsing(t_map *map, char *line)
 {

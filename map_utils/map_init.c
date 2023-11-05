@@ -89,7 +89,14 @@ int read_map(char *map_name, t_map *map)
     get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
     line = create_map(fd, map);
     printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
-    map_parsing(map, line); // map_parsing(map, create_map(fd, map)); - DENE
+    map->map = ft_split(line, '\n');
+
+    int i = 0;
+    while (map->map[i])
+    {
+        printf("\n%s", map->map[i]);
+        i++;
+    }
     close(fd);
     return 0;
 }
