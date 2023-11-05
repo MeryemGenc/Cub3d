@@ -30,7 +30,7 @@ int map_parsing(t_map *map, char *line)
         this_map[i][j] = '\0';
         i++;
     }
-    map->map = map;
+    map->map = this_map;
 
     int a = 0;
     printf("----------------------------  MAP  ------------------------------");
