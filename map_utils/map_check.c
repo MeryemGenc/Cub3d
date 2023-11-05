@@ -6,7 +6,7 @@
 
 
 int map_parsing(t_map *map, char *line)
-{
+{printf("sgrgsd");
     int i;
     int j;
     int indx;
@@ -14,7 +14,7 @@ int map_parsing(t_map *map, char *line)
 
     i = 0;
     j = 0;
-    indx = 0;
+    indx = 0;printf("kkkkkkkkkk");
     //this_map = (char **)malloc(map->map_H * map->map_W);
     while(i < map->map_H)
     {
@@ -32,7 +32,7 @@ int map_parsing(t_map *map, char *line)
             indx++;
         }
         indx++;
-        while (j < map->map_H)
+        while (j < map->map_W)
         {   
             printf("*");
             // if (j < (int)ft_strlen(map->map[i]) - 1)
