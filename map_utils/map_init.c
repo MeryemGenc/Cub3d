@@ -92,7 +92,7 @@ int read_map(char *map_name, t_map *map)
         return print_err("Map file can not open.");
     load_textures(fd, map); // map'in üst kısmının yanlış verilmeyeceğini varsayıp kontrol etmedim.
     line = get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
-    printf("\nline: %s", line);
+    printf("\nline: %s**", line);
     free(line);
     // line = create_map(fd, map);
     // printf("\nmaph: %d mapw: %d\n", map->map_H, map->map_W);
