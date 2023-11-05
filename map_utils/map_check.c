@@ -5,8 +5,9 @@ int map_check(t_map *map)
     int i;
     int j;
     int flag;
-
-    i = -1;
+                // 1 space space space -> space_flag = 1
+                // 1 space space space 1 space space space -> space_flag = 1
+    i = -1;     // space space space 1 -> space_flag = 0
     while (map->map[++i] && i < map->map_H) // space öncesi ve sonrası da 1 olması - NULL öncesi 1 olmalı
     {
         flag = 0;
@@ -19,11 +20,15 @@ int map_check(t_map *map)
                 return (print_err("1Map must be surround by walls."));
             if (!map->map[i][j+1] && map->map[i][j] != '1')// duvar kapanmadan bitiyorsa map
                 return (print_err("2Map must be surround by walls."));
-            if (map->map[i][j] == ' ' && (map->map[i][j+1] != '1' || map->map[i][j-1] != '1'))// duvar kapanmadan space varsa
-            {
-                printf("\ny:%d x:%d\n", j,i);
-                return (print_err("2Map must be surround by walls."));
-            }
+			if (flag == 1 && map->map[i][j] == ' ')
+			{
+				if (map->map[i - 1] && map->map[i - 1][j]
+						&& ft_strchr("0NSEW", map->map[i - 1][j]))
+                    return (print_err("2Map must be surround by walls."));
+				flag ^= 1;
+			}
+			if (!map->map[i + 1] && ft_strchr("NSEW0", map->map[i][j]))
+				return (0);
         }
         i++;
     }
