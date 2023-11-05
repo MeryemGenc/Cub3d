@@ -10,6 +10,7 @@ int map_parsing(t_map *map, char *line)
     int i = 0;
     char **this_map;
 
+    (void)map;
     this_map = ft_split(line, '\n');
     while (this_map[i])
     {
