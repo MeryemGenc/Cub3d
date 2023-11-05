@@ -18,11 +18,6 @@ int main(int argc, char **argv)
     //game = malloc(sizeof(game));
     map = (t_map *)malloc(sizeof(t_map));
     map_init(argv[1], map);
-    // while (i < map->map_H)
-    // {
-    //     free(map->map[i]);
-    //     i++;
-    // }
     free(map);
     //free(game);
 

@@ -92,10 +92,9 @@ int read_map(char *map_name, t_map *map)
     line = get_next_line(fd); // direkt free(get_next_line(fd)); oluyor mu? dene.
     free(line);
     line = create_map(fd, map);
-    printf("%s", line);
-    free(line);
+    map_parsing(map, line); // map_parsing(map, create_map(fd, map)); - DENE
     close(fd);
-    return 0; // başarı durumu
+    return 0;
 }
 
 int check_map_extension(char *map_name)
