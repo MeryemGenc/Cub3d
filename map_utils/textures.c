@@ -1,4 +1,4 @@
-#include "./cube3d.h"
+#include "../cube3d.h"
 
 // okunan texture'lar ve gloor-ceiling ayarı yapılacak. YAPMADIM HENUZ
 // map file map başlangıcına kadar getirildi

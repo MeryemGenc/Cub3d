@@ -1,4 +1,4 @@
-#include "./cube3d.h"
+#include "../cube3d.h"
 
     // game->map->map için yer ayır malloc ile (yer atamamıza gerek var mı - map e zaten splitte yer atanıyor.) - şiimdilik YOK diyelim
     // \n görene kadar her satırı map e ata.
