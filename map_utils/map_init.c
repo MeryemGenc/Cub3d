@@ -58,7 +58,7 @@ char *create_map(int fd, t_map *map)
         line = get_next_line(fd);
         if (!line)
             break;
-        if (!ft_strncmp(line, const_nl, 2)) // const char* istiyor arkadas
+        if (!ft_strncmp(line, const_nl, 1)) // const char* istiyor arkadas
         {
             //  çıkmıyo
             printf("\ncikacak mi? : %s\n", line);
