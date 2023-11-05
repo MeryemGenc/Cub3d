@@ -11,18 +11,18 @@ int main(int argc, char **argv)
     //t_game *game;
     t_map *map;
 
-    int i = 0; // free lemme işlemi için -> bunu sonra farklı 1 fonksiyonda yap
+    //int i = 0; // free lemme işlemi için -> bunu sonra farklı 1 fonksiyonda yap
 
     if (argc != 2)
         return print_err("Wrong argument");
     //game = malloc(sizeof(game));
-    map = malloc(sizeof(t_map));
+    map = (t_map *)malloc(sizeof(t_map));
     map_init(argv[1], map);
-    while (i < map->map_H)
-    {
-        free(map->map[i]);
-        i++;
-    }
+    // while (i < map->map_H)
+    // {
+    //     free(map->map[i]);
+    //     i++;
+    // }
     free(map);
     //free(game);
 

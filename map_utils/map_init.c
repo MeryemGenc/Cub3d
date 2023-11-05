@@ -93,6 +93,7 @@ int read_map(char *map_name, t_map *map)
     free(line);
     line = create_map(fd, map);
     printf("%s", line);
+    free(line);
     close(fd);
     return 0; // başarı durumu
 }
