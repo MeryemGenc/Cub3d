@@ -1,4 +1,4 @@
-#include "./cube3d.h"
+#include "../cube3d.h"
 
 // map i oku ve struct a at
 // struct üzerinden kontrolleri yap
