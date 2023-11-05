@@ -15,7 +15,7 @@ int map_check(t_map *map)
             printf("%c", map->map[i][j]);
             j++;
         }
-        printf("\n");
+        printf("+\n");
         i++;
     }
     return (0);
