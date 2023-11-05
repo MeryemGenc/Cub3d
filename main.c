@@ -1,6 +1,7 @@
 #include "cube3d.h"
 
 // malloc kontrollerini yap - UNUTMA
+// map2 de hatayı görmüyor. tekrar bak
 
 
 int print_err(char *str)

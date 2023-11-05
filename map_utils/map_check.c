@@ -17,7 +17,7 @@ int map_check(t_map *map)
                 flag = 1;
             if (flag == 0 && ft_strchr("NSEW0", map->map[i][j]))
                 return (print_err("1Map must be surround by walls."));
-            if (!map->map[i][j + 2] && map->map[i][j + 1] != '1')
+            if (!map->map[i][j + 1] && map->map[i][j] != '1')
                 return (print_err("2Map must be surround by walls."));
 			if (flag == 1 && map->map[i][j] == ' ')
 			{
@@ -29,33 +29,7 @@ int map_check(t_map *map)
     }
     return (0);
 }
-
-// XOR: farklı bitler için:1 - aynı bitler için: 0
-// hata: return 0
 /*
-static int	horizontalcheck(char **map, int i, int j, int flag)
-{
-	while (map[++i])
-	{
-		flag = 0;
-		j = -1;
-		while (map[i][++j])
-		{
-			if (flag == 0 && map[i][j] == '1')
-				flag ^= 1; // XOR operatörü -> şov. -> zaten flag 0 ise giriyo. Git direkt 1 yap işte - neyin peşindesin.
-			if (flag == 0 && ft_strchr("NSEW0", map[i][j])) // duvar olmadan karakter ya da zemin var demek
-				return (0);
-			if (flag == 1 && map[i][j] == ' ') // "110001111N" durumunu nerede kontrol ediyoruz? (en sonlara space atamadık ki.)
-			{
-				if (map[i][j - 1] && ft_strchr("0NSEW", map[i][j - 1])) // ' ''ten önce karakter ya da zemin varsa-neden direkt map[i][j - 1]==1 mi diye bakmıyor? DENE
-					return (0);
-				flag ^= 1;// flag = 0 ->  duvardan sonra space varsa
-			}
-		}
-	}
-	return (1); 
-}
-
 static int	verticalcheck(char **map, int i, int j, int flag)
 {
 	while (map[0][++j])
