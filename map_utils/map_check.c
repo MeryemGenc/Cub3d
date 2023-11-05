@@ -7,10 +7,10 @@ int map_check(t_map *map)
 
     i = 0;
     j = 0;
-    while (i < map->map_H)
+    while (map->map[i] && i < map->map_H)
     {
         j = 0;
-        while (j < (int)ft_strlen(map->map[i]))
+        while (map->map[i][j] && j < (int)ft_strlen(map->map[i]))
         {
             printf("%c", map->map[i][j]);
             j++;
