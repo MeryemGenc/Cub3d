@@ -45,7 +45,7 @@ int check_vertical(t_map *map) // napacaz şimdi ?
     {
         flag = 0;
         i = -1;
-        while ( ++i < map->map_H) // satır
+        while ( ++i < map->map_H - 1) // satır
         {
             if (!map->map[i][j] || map->map[i][j] == ' ')
             {
