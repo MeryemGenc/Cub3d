@@ -18,7 +18,7 @@ int map_check(t_map *map)
                 flag = 1;
             if (flag == 0 && ft_strchr("NSEW0", map->map[i][j])) // flag 0 iken karakter||yüzey
                 return (print_err("1Map must be surround by walls."));
-            if (!map->map[i][j + 1] && map->map[i][j] != '1')// duvar kapanmadan bitiyorsa map
+            if (!map->map[i][j + 1] && map->map[i][j] != '1' && flag)// duvar kapanmadan bitiyorsa map
             {
                 printf("sssssssssssssssssssssssssss");
                 printf("s: %s", map->map[i]);
