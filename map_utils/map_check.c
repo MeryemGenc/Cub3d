@@ -7,6 +7,21 @@
 
 int map_parsing(t_map *map, char *line)
 {
+    int i = 0;
+    char **this_map;
+
+    this_map = ft_split(line, '\n');
+    while (this_map[i])
+    {
+        printf("\n%s", this_map[i]);
+        i++;
+    }
+    return 0;
+}
+
+
+/*int map_parsing(t_map *map, char *line)
+{
     printf("sgrgsd");
     int i;
     int j;
@@ -17,7 +32,7 @@ int map_parsing(t_map *map, char *line)
     j = 0;
     indx = 0;
     printf("kkkkkkkkkk");
-    this_map = (char **)malloc((map->map_H * map->map_W) * sizeof(char)); // buranın tamı tamına ayırıldığına emin ol
+    this_map = (char **)ft_calloc((map->map_H * map->map_W), sizeof(char)); // buranın tamı tamına ayırıldığına emin ol
     while(i < map->map_H)
     {
         j = 0; 
@@ -29,12 +44,12 @@ int map_parsing(t_map *map, char *line)
             j++;
             indx++;
         }
-        while (j < map->map_W)
-        {   
-            printf("*");
-            this_map[i][j] = '*';
-            j++;
-        }
+        // while (j < map->map_W)
+        // {   
+        //     printf("*");
+        //     this_map[i][j] = '*';
+        //     j++;
+        // }
         printf("\n");
         this_map[i][j] = '\0';
         indx++;
@@ -49,7 +64,7 @@ int map_parsing(t_map *map, char *line)
     //     printf("\n%s", map->map[a]);
     //     a++;
     // }
-    free(this_map); // map->map e atama yaptıktan sonra sil burayı - ya da direkt tüm char atamalarını map->map e yap
-    free(line);
+    // free(this_map); // map->map e atama yaptıktan sonra sil burayı - ya da direkt tüm char atamalarını map->map e yap
+    // free(line);
     return 0;
-}
+}*/
