@@ -57,7 +57,7 @@ char *create_map(int fd, t_map *map)
         line = get_next_line(fd);
         if (!line)
             break;
-        if (line[0] == '\n')
+        if (!ft_strncmp(line, "\n", 2))
         {
             //  çıkmıyo
             printf("\ncikacak mi? : %s\n", line);
