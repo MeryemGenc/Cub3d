@@ -23,7 +23,7 @@ int load_textures(int fd, t_map *map)
     return (1);
 }
 
-int init_texture(char *line, t_map *map)
+int init_texture(char *line, t_map *map) // bu nasıl isim - ne alaka
 {
     int i;
 

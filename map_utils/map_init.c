@@ -35,8 +35,8 @@ char *create_map(int fd, t_map *map)
         line = get_next_line(fd);
         if (!line)
             break;
-        if (!init_texture(line, map))
-            map->player_start_indx.y = counter;
+        // if (!init_texture(line, map))
+        //     map->player_start_indx.y = counter;
         if (map->map_W < (int)ft_strlen(line))
             map->map_W = (int)ft_strlen(line);
         tmp_map = ft_gnl_strjoin(tmp_map, line);
